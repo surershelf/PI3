@@ -1,0 +1,25 @@
+int VermeVaga1 = *o slot*;
+int VerdeVaga1 = *o slot*;
+
+void setup()
+{
+Serial.begin(9600);
+pinMode(VermeVaga1, OUTPUT);
+pinMode(VerdeVaga1, OUTPUT);
+}
+
+void loop()
+{
+int sensorValue = analogRead (*Slot*);
+Serial.println(sensorValue);
+if (sensorValue > 120){
+digitalWrite(VermeVaga1, HIGH);
+digiitalWrite(VerdeVaga1, LOW);
+delay(300);
+}
+else{
+digitalWrite(VermeVaga1, LOW);
+digiitalWrite(VerdeVaga1, HIGH);
+delay(300);
+}
+}
