@@ -1,18 +1,29 @@
 int VermeVaga1 = *o slot*;
 int VerdeVaga1 = *o slot*;
+int VermeVaga2 = *o slot*;
+int VerdeVaga2 = *o slot*;
+int VermeVaga3 = *o slot*;
+int VerdeVaga3 = *o slot*;
+
 
 void setup()
 {
 Serial.begin(9600);
 pinMode(VermeVaga1, OUTPUT);
 pinMode(VerdeVaga1, OUTPUT);
+pinMode(VermeVaga2, OUTPUT);
+pinMode(VerdeVaga2, OUTPUT);
+pinMode(VermeVaga3, OUTPUT);
+pinMode(VerdeVaga3, OUTPUT);
 }
 
 void loop()
 {
-int sensorValue = analogRead (*Slot*);
-Serial.println(sensorValue);
-if (sensorValue > 120){
+int sensorValue1 = analogRead (*Slot*);
+int sensorValue2 = analogRead(*Slot*);
+int sensorValue3 = analogRead(*Slot*);
+Serial.println(sensorValue1);
+if (sensorValue1 > 120){
 digitalWrite(VermeVaga1, HIGH);
 digiitalWrite(VerdeVaga1, LOW);
 delay(300);
@@ -22,4 +33,25 @@ digitalWrite(VermeVaga1, LOW);
 digiitalWrite(VerdeVaga1, HIGH);
 delay(300);
 }
+if (sensorValue1 > 120){
+digitalWrite(VermeVaga2, HIGH);
+digiitalWrite(VerdeVaga2, LOW);
+delay(300);
+}
+else{
+digitalWrite(VermeVaga2, LOW);
+digiitalWrite(VerdeVaga2, HIGH);
+delay(300);
+}
+if (sensorValue3 > 120){
+digitalWrite(VermeVaga3, HIGH);
+digiitalWrite(VerdeVaga3, LOW);
+delay(300);
+}
+else{
+digitalWrite(VermeVaga3, LOW);
+digiitalWrite(VerdeVaga3, HIGH);
+delay(300);
+}
+
 }
