@@ -26,31 +26,37 @@ Serial.println(sensorValue1);
 if (sensorValue1 > 120){
 digitalWrite(VermeVaga1, HIGH);
 digiitalWrite(VerdeVaga1, LOW);
+int numPython = 0;
 delay(300);
 }
 else{
 digitalWrite(VermeVaga1, LOW);
 digiitalWrite(VerdeVaga1, HIGH);
+int numPython = 1;
 delay(300);
 }
 if (sensorValue1 > 120){
 digitalWrite(VermeVaga2, HIGH);
 digiitalWrite(VerdeVaga2, LOW);
+int numPython = 0;
 delay(300);
 }
 else{
 digitalWrite(VermeVaga2, LOW);
 digiitalWrite(VerdeVaga2, HIGH);
+int numPython = 1;
 delay(300);
 }
 if (sensorValue3 > 120){
 digitalWrite(VermeVaga3, HIGH);
 digiitalWrite(VerdeVaga3, LOW);
+int numPython = 0;
 delay(300);
 }
 else{
 digitalWrite(VermeVaga3, LOW);
 digiitalWrite(VerdeVaga3, HIGH);
+int numPython = 1;
 delay(300);
 }
 
