@@ -1,63 +1,57 @@
-int VermeVaga1 = *o slot*;
-int VerdeVaga1 = *o slot*;
-int VermeVaga2 = *o slot*;
-int VerdeVaga2 = *o slot*;
-int VermeVaga3 = *o slot*;
-int VerdeVaga3 = *o slot*;
-
+int VermeVaga1 = 2; // Defina o pino correto
+int VerdeVaga1 = 3; // Defina o pino correto
+int VermeVaga2 = 4; // Defina o pino correto
+int VerdeVaga2 = 5; // Defina o pino correto
+int VermeVaga3 = 6; // Defina o pino correto
+int VerdeVaga3 = 7; // Defina o pino correto
 
 void setup()
 {
-Serial.begin(9600);
-pinMode(VermeVaga1, OUTPUT);
-pinMode(VerdeVaga1, OUTPUT);
-pinMode(VermeVaga2, OUTPUT);
-pinMode(VerdeVaga2, OUTPUT);
-pinMode(VermeVaga3, OUTPUT);
-pinMode(VerdeVaga3, OUTPUT);
+  Serial.begin(9600);
+  pinMode(VermeVaga1, OUTPUT);
+  pinMode(VerdeVaga1, OUTPUT);
+  pinMode(VermeVaga2, OUTPUT);
+  pinMode(VerdeVaga2, OUTPUT);
+  pinMode(VermeVaga3, OUTPUT);
+  pinMode(VerdeVaga3, OUTPUT);
 }
 
 void loop()
 {
-int sensorValue1 = analogRead (*Slot*);
-int sensorValue2 = analogRead(*Slot*);
-int sensorValue3 = analogRead(*Slot*);
-Serial.println(sensorValue1);
-if (sensorValue1 > 120){
-digitalWrite(VermeVaga1, HIGH);
-digiitalWrite(VerdeVaga1, LOW);
-int numPython = 0;
-delay(300);
-}
-else{
-digitalWrite(VermeVaga1, LOW);
-digiitalWrite(VerdeVaga1, HIGH);
-int numPython = 1;
-delay(300);
-}
-if (sensorValue1 > 120){
-digitalWrite(VermeVaga2, HIGH);
-digiitalWrite(VerdeVaga2, LOW);
-int numPython = 0;
-delay(300);
-}
-else{
-digitalWrite(VermeVaga2, LOW);
-digiitalWrite(VerdeVaga2, HIGH);
-int numPython = 1;
-delay(300);
-}
-if (sensorValue3 > 120){
-digitalWrite(VermeVaga3, HIGH);
-digiitalWrite(VerdeVaga3, LOW);
-int numPython = 0;
-delay(300);
-}
-else{
-digitalWrite(VermeVaga3, LOW);
-digiitalWrite(VerdeVaga3, HIGH);
-int numPython = 1;
-delay(300);
-}
+  int sensorValue1 = analogRead(A0); // Assumindo que o sensor está conectado ao A0
+  int sensorValue2 = analogRead(A1); // Assumindo que o sensor está conectado ao A1
+  int sensorValue3 = analogRead(A2); // Assumindo que o sensor está conectado ao A2
+  
+  Serial.print("Sensor1: ");
+  Serial.println(sensorValue1);
+  Serial.print("Sensor2: ");
+  Serial.println(sensorValue2);
+  Serial.print("Sensor3: ");
+  Serial.println(sensorValue3);
+  
+  if (sensorValue1 > 120){
+    digitalWrite(VermeVaga1, HIGH);
+    digitalWrite(VerdeVaga1, LOW);
+  } else {
+    digitalWrite(VermeVaga1, LOW);
+    digitalWrite(VerdeVaga1, HIGH);
+  }
 
+  if (sensorValue2 > 120){
+    digitalWrite(VermeVaga2, HIGH);
+    digitalWrite(VerdeVaga2, LOW);
+  } else {
+    digitalWrite(VermeVaga2, LOW);
+    digitalWrite(VerdeVaga2, HIGH);
+  }
+
+  if (sensorValue3 > 120){
+    digitalWrite(VermeVaga3, HIGH);
+    digitalWrite(VerdeVaga3, LOW);
+  } else {
+    digitalWrite(VermeVaga3, LOW);
+    digitalWrite(VerdeVaga3, HIGH);
+  }
+  
+  delay(300);
 }
