@@ -1,10 +1,38 @@
-import serial
+import serial.tools.list_ports
 
-ser = serial.Serial('COM3', 9600)  # Change the port and baud rate as needed
-ser.flush()
+ports = serial.tools.list_ports.comports()
+serialInst = serial.Serial()
+
+portList = []
+
+for onePort in ports:
+    portList.append(str(onePort))
+    print(str(onePort))
+
+val = input("select Port: COM")
+
+for x in range(0,len(portList)):
+    if portList[x].startswith("COM" + str(val)):
+        portVar = "COM" + str(val)
+        print(portList[x])
 
 while True:
-    if ser.in_waiting > 0:
-        line = ser.readline().decode('utf-8').rstrip()
-        numPython = int(line)
-        print(f'Received: {numPython}')
+    line = ser.readline().decode('utf-8').strip()
+    if "Sensor1:" in line:
+        sensor1_value = int(line.split(":")[1].strip())
+        if sensor1_value > 120:
+            print("Sensor1: on")
+        else:
+            print("Sensor1: off")
+    elif "Sensor2:" in line:
+        sensor2_value = int(line.split(":")[1].strip())
+        if sensor2_value > 120:
+            print("Sensor2: on")
+        else:
+            print("Sensor2: off")
+    elif "Sensor3:" in line:
+        sensor3_value = int(line.split(":")[1].strip())
+        if sensor3_value > 120:
+            print("Sensor3: on")
+        else:
+            print("Sensor3: off")
